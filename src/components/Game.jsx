@@ -8,6 +8,47 @@ export default function Game() {
         y: 5,
     });
 
+    // dungeon map
+    const [gameMap, setGameMap] = useState(
+        [
+            [
+                {},
+                {},
+                {},
+                {},
+                {},
+            ],
+            [
+                {},
+                {},
+                {},
+                {},
+                {},
+            ],
+            [
+                {},
+                {},
+                {},
+                {},
+                {},
+            ],
+            [
+                {},
+                {},
+                {},
+                {},
+                {},
+            ],
+            [
+                {},
+                {},
+                {},
+                {},
+                {},
+            ],
+        ]
+    );
+
     // player movement
     useEffect(() => {
         function handleKeyDown(e) {
