@@ -12,39 +12,39 @@ export default function Game() {
     const [gameMap, setGameMap] = useState(
         [
             [
-                {},
-                {},
-                {},
-                {},
-                {},
+                "wall",
+                "wall",
+                "wall",
+                "wall",
+                "wall",
             ],
             [
-                {},
-                {},
-                {},
-                {},
-                {},
+                "wall",
+                "floor",
+                "floor",
+                "floor",
+                "wall",
             ],
             [
-                {},
-                {},
-                {},
-                {},
-                {},
+                "wall",
+                "floor",
+                "floor",
+                "floor",
+                "wall",
             ],
             [
-                {},
-                {},
-                {},
-                {},
-                {},
+                "wall",
+                "floor",
+                "floor",
+                "floor",
+                "wall",
             ],
             [
-                {},
-                {},
-                {},
-                {},
-                {},
+                "wall",
+                "wall",
+                "wall",
+                "wall",
+                "wall",
             ],
         ]
     );
@@ -82,6 +82,24 @@ export default function Game() {
             </div>
             <div>
                 <p>Player Position: {playerPosition.x}, {playerPosition.y}</p>
+            </div>
+            <div>
+                {gameMap.map((row, y) => (
+                    <div key={y} style={{ display: "flex" }}>
+                        {row.map((tile, x) => (
+                            <div
+                                key={x}
+                                style={{
+                                    width: 30,
+                                    height: 30,
+                                    backgroundColor: tile === "wall" ? "black" : "lightgray",
+                                    border: "1px solid #333",
+                                }}
+                            >
+                            </div>
+                        ))}
+                    </div>
+                ))}
             </div>
         </>
     );
