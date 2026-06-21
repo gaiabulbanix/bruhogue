@@ -4,8 +4,8 @@ export default function Game() {
     // **hooks**
     // player position
     const [playerPosition, setPlayerPosition] = useState({
-        x: 5,
-        y: 5,
+        x: 2,
+        y: 2,
     });
 
     // dungeon map
@@ -55,9 +55,9 @@ export default function Game() {
             setPlayerPosition((prev) => {
                 switch (e.key) {
                     case "w":
-                        return { ...prev, y: prev.y + 1, };
-                    case "s":
                         return { ...prev, y: prev.y - 1, };
+                    case "s":
+                        return { ...prev, y: prev.y + 1, };
                     case "a":
                         return { ...prev, x: prev.x - 1, };
                     case "d":
@@ -94,8 +94,10 @@ export default function Game() {
                                     height: 30,
                                     backgroundColor: tile === "wall" ? "black" : "lightgray",
                                     border: "1px solid #333",
+                                    color: "#F00"
                                 }}
                             >
+                                {playerPosition.x === x && playerPosition.y === y && "@"}
                             </div>
                         ))}
                     </div>
