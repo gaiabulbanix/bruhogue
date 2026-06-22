@@ -53,26 +53,37 @@ export default function Game() {
     useEffect(() => {
         function handleKeyDown(e) {
             setPlayerPosition((prev) => {
+                let nextPosition = {
+                    x: null,
+                    y: null
+                };
+
                 switch (e.key) {
                     case "w":
-                        return { ...prev, y: prev.y - 1, };
+                        nextPosition = { ...prev, y: prev.y - 1, };
+                        break;
                     case "s":
-                        return { ...prev, y: prev.y + 1, };
+                        nextPosition = { ...prev, y: prev.y + 1, };
+                        break;
                     case "a":
-                        return { ...prev, x: prev.x - 1, };
+                        nextPosition = { ...prev, x: prev.x - 1, };
+                        break;
                     case "d":
-                        return { ...prev, x: prev.x + 1, };
+                        nextPosition = { ...prev, x: prev.x + 1, };
+                        break;
                     default:
                         return prev;
                 };
+
+                if (gameMap[nextPosition.y][nextPosition.x] === "wall") {
+                    return prev;
+                } return nextPosition;
             });
         };
 
         window.addEventListener("keydown", handleKeyDown);
 
-        return () => {
-            window.removeEventListener("keydown", handleKeyDown);
-        };
+        return window.removeEventListener("keydown", handleKeyDown);
     }, []);
 
     return (
@@ -105,4 +116,4 @@ export default function Game() {
             </div>
         </>
     );
-};
+}
