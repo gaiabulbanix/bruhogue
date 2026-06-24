@@ -75,7 +75,13 @@ export default function Game() {
                         return prev;
                 };
 
-                if (gameMap[nextPosition.y][nextPosition.x] === "wall") {
+                if (
+                    nextPosition.y > gameMap.length ||
+                    nextPosition.y <= 0 ||
+                    nextPosition.x > gameMap[0].length ||
+                    nextPosition.x <= 0 ||
+                    gameMap[nextPosition.y][nextPosition.x] === "wall"
+                ) {
                     return prev;
                 } return nextPosition;
             });
@@ -83,7 +89,7 @@ export default function Game() {
 
         window.addEventListener("keydown", handleKeyDown);
 
-        return window.removeEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
     }, []);
 
     return (
