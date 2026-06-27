@@ -5,8 +5,13 @@ export default function Game() {
     // player position
     const [playerPosition, setPlayerPosition] = useState({
         x: 2,
-        y: 2,
+        y: 2
     });
+
+    const [enemyPosition, setEnemyPosition] = useState({
+        x: 2,
+        y: 1
+    })
 
     // dungeon map
     const [gameMap, setGameMap] = useState(
