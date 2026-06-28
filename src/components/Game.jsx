@@ -120,6 +120,7 @@ export default function Game() {
                                 }}
                             >
                                 {playerPosition.x === x && playerPosition.y === y && "@"}
+                                {enemyPosition.x === x && enemyPosition.y === y && "G"}
                             </div>
                         ))}
                     </div>
