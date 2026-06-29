@@ -81,10 +81,10 @@ export default function Game() {
                 };
 
                 if (
-                    nextPosition.y > gameMap.length ||
-                    nextPosition.y <= 0 ||
-                    nextPosition.x > gameMap[0].length ||
-                    nextPosition.x <= 0 ||
+                    nextPosition.y >= gameMap.length ||
+                    nextPosition.y < 0 ||
+                    nextPosition.x >= gameMap[0].length ||
+                    nextPosition.x < 0 ||
                     gameMap[nextPosition.y][nextPosition.x] === "wall"
                 ) {
                     return prev;
