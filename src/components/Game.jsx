@@ -14,45 +14,43 @@ export default function Game() {
     })
 
     // dungeon map
-    const [gameMap, setGameMap] = useState(
+    const gameMap = [
         [
-            [
-                "wall",
-                "wall",
-                "wall",
-                "wall",
-                "wall",
-            ],
-            [
-                "wall",
-                "floor",
-                "floor",
-                "floor",
-                "wall",
-            ],
-            [
-                "wall",
-                "floor",
-                "floor",
-                "floor",
-                "wall",
-            ],
-            [
-                "wall",
-                "floor",
-                "floor",
-                "floor",
-                "wall",
-            ],
-            [
-                "wall",
-                "wall",
-                "wall",
-                "wall",
-                "wall",
-            ],
-        ]
-    );
+            "wall",
+            "wall",
+            "wall",
+            "wall",
+            "wall",
+        ],
+        [
+            "wall",
+            "floor",
+            "floor",
+            "floor",
+            "wall",
+        ],
+        [
+            "wall",
+            "floor",
+            "floor",
+            "floor",
+            "wall",
+        ],
+        [
+            "wall",
+            "floor",
+            "floor",
+            "floor",
+            "wall",
+        ],
+        [
+            "wall",
+            "wall",
+            "wall",
+            "wall",
+            "wall",
+        ],
+    ];
 
     // player movement
     useEffect(() => {
