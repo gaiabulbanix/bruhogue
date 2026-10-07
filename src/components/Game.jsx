@@ -1,17 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function Game() {
     // **hooks**
     // player position
     const [playerPosition, setPlayerPosition] = useState({
         x: 2,
-        y: 2
+        y: 3
     });
 
     const [enemyPosition, setEnemyPosition] = useState({
         x: 2,
         y: 1
     })
+    // game state
+    const isFirstRender = useRef(true);
 
     // dungeon map
     const gameMap = [
@@ -87,13 +89,25 @@ export default function Game() {
                 ) {
                     return prev;
                 } return nextPosition;
+
             });
         };
-
         window.addEventListener("keydown", handleKeyDown);
 
         return () => window.removeEventListener("keydown", handleKeyDown);
     }, []);
+
+    useEffect(() => {
+        console.log(`the player is in: ${playerPosition.x}, ${playerPosition.y}`);
+        console.log(`the goblin is in: ${enemyPosition.x}, ${enemyPosition.y}`);
+    }, [playerPosition]);
+
+    useEffect(() => {
+        setEnemyPosition({
+            x: 3,
+            y: 1
+        });
+    }, [playerPosition])
 
     return (
         <>
